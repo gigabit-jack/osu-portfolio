@@ -1,0 +1,180 @@
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+body {
+  /* background-color: #fcffa4; */
+  background-color:rgb(9, 21, 38);
+  color: antiquewhite;
+  font-family: "Futura", "Helvetica Neue", sans-serif;
+  margin: 2%;
+  padding: 5pt;
+}
+
+input {
+  padding: 10pt;
+  margin: 2%;
+  border: #bc3754 solid 2px;
+  background-color: #fca50a;
+  color: #420a68;
+  font-size: larger;
+  font-weight: bold;
+
+}
+
+label {
+  font-size: larger;
+  font-weight: bold;
+}
+
+select {
+  font-size: larger;
+  font-weight: bold;
+}
+
+button {
+  padding: 10pt;
+  margin: 2%;
+  border: #bc3754 solid 2px;
+  background-color: #fca50a;
+  color: #420a68;
+  cursor: pointer;
+}
+
+header {
+  background-color: antiquewhite;
+  color: #3b528b;
+  padding: 10pt;
+}
+
+nav {
+  margin: 1% 2% 0% 2%;
+  padding: 20pt;
+  border: #bc3754 solid 2px;
+  color: antiquewhite;
+  background-color: #8b8376;
+  position: relative;
+}
+
+nav a {
+  margin: 5pt;
+  padding: 10pt;
+  color: antiquewhite;
+  background-color: #dd513a;
+  text-decoration: none;
+}
+
+nav a:visited {
+  margin: 5pt;
+  padding: 10pt;
+  text-decoration: none;
+}
+
+nav a:hover {
+  margin: 5pt;
+  padding: 10pt;
+  color: #fcffa4;
+  background-color: #932667;
+  text-decoration: none;
+}
+
+main {
+  padding: 10pt;
+}
+
+footer {
+  padding: 10pt;
+  background-color: antiquewhite;
+  margin-top: 10%;
+  color: #440154;
+}
+
+h1,
+h2 {
+  color: #dd513a;
+}
+
+p,
+ul,
+li {
+  margin-bottom: 1%;
+}
+
+table
+{ position: relative;
+  margin: 0 auto;
+  width: 100%;
+  border: 2px solid #420a68;
+  border-collapse: collapse;
+}
+
+thead,
+tr td {
+  padding: 10pt;
+  border: 2px solid #420a68;
+  border-collapse: collapse;
+  background-color: #fca50a;
+  color: #420a68;
+}
+tr th {
+  padding: 10pt;
+  border: 2px solid #420a68;
+  border-collapse: collapse;
+  background-color: #dd513a;
+  color: antiquewhite;
+}
+
+a {
+  position: relative;
+  top: 10pt;
+  color: #dd513a;
+}
+
+form {
+  font-family: "Futura", "Helvetica Neue", sans-serif;
+}
+form input {
+    font-family: "Futura", "Helvetica Neue", sans-serif;
+}
+form button {
+    font-family: "Futura", "Helvetica Neue", sans-serif;
+}
