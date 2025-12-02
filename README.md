@@ -1,12 +1,12 @@
-# 📘 **Oregon State University Portfolio --- Josh Goben**
+# 📘 **Oregon State University Portfolio – Josh Goben**
 
 Welcome to my software engineering portfolio!
 
-I decided in 2022 to start the Computer Science postbaccalaureate program at Oregon State University. This repository contains selected projects completed during my coursework at Oregon State University.
+I decided in 2022 to start the Computer Science postbaccalaureate program at Oregon State University. This repository contains selected projects completed during my coursework.
 
-Each project represents a major assignment, multi-week build, or final portfolio piece demonstrating full-stack development, algorithms, data structures, assembly programming, and software engineering practices.
+Each project represents a major assignment, multi-week build, or final portfolio project demonstrating full-stack development, algorithms, data structures, assembly programming, database management, and software engineering practices.
 
-This repository will be updated as I continue my development journey at OSU. One day, I will make that final commit after the program is complete.
+This repository will be updated as I continue my development journey at OSU. One day, I will make that final commit after I complete the program.
 
 ---
 
@@ -88,7 +88,7 @@ One of my earliest Python projects, demonstrating functions, user input, loops, 
 
 ## 📄 **How This Portfolio Is Organized**
 
-Each folder in the root of this repository represents a major project, one per class.
+Each folder in the root of this repository represents a major project from a single class.
 Inside each folder, you'll find:
 
 - Complete source code
