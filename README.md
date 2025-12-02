@@ -8,8 +8,6 @@ Each project represents a major assignment, multi-week build, or final portfolio
 
 This repository will be updated as I continue my development journey at OSU. One day, I will make that final commit after I complete the program.
 
----
-
 ## **Featured Projects**
 
 ### 🟥 **CS 325 --- Analysis of Algorithms (Upcoming class)**
