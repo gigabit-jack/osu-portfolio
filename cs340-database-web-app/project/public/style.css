@@ -1,0 +1,119 @@
+/*
+Citation for the following CSS file:
+Date: 22/11/2025
+Adapted from:
+    Repository name: Fanta.css (Fantasy + CSS)
+    Repository URL: https://github.com/jamezmca/fantacss
+    Source URL: https://github.com/jamezmca/fantacss/blob/main/fanta.css
+Version: 0.1.0
+*/
+
+:root {
+    --background-primary: #ffb109;
+    --background-secondary: #fff2e8;
+    --background-muted: #ffda8d;
+
+    --color-primary: #9548c8;
+    --color-secondary: #b935a2;
+    --color-muted: #cda9e5;
+    --color-link: #9db9f9;
+
+    --border-primary: #735dee;
+}
+
+* {
+    margin: 1px;
+    padding: 1px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background: var(--background-primary);
+    color: var(--color-primary);
+    font-size: 18px;
+}
+
+p {
+    margin-bottom: 32px;
+}
+
+table {
+    width: fit-content;
+    border: 1px solid var(--border-primary);
+    background: var(--background-muted);
+    margin-top: 16px;
+}
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+table tr:first-child th:first-child {
+    border-top-left-radius: 8px;
+}
+
+table tr:first-child th:last-child {
+    border-top-right-radius: 8px;
+}
+
+th {
+    background-color: var(--background-muted);
+}
+
+td {
+    background: var(--background-secondary);
+}
+
+td,th {
+    text-align: left;padding: 12px;
+}
+
+thead {
+    border-collapse: collapse;
+}
+
+tfoot {
+    border-top: 1px solid black;
+}
+
+table tr:hover td,
+tbody tr:nth-child(even):hover td {
+    background-color: var(--color-link);
+}
+
+h1, h2 { 
+    margin-left: 16px;padding: 32px;
+}
+
+.cuForm { 
+    margin-left: 32px;
+}
+
+input, select { 
+    margin-bottom: 4px;margin-right: 12px;
+}
+
+nav {
+    background-color: var(--background-muted);padding: 16px;
+}
+
+a {
+    margin-left: 16px;
+}
+
+.homepageDescription {
+    margin-left: 32px;
+    white-space: pre;
+}
+
+footer {
+  padding: 2pt;
+  background-color: var(--background-muted);
+  margin-top: 10%;
+  color: #440154;
+}

@@ -1,0 +1,95 @@
+<h1>Books - Online Bookstore Admin</h1>
+
+<div class="booksDescription">
+    <p>This page displays all books currenly in the system, even if they have no orders.</p>
+</div>
+
+{{! CREATE form }}
+<h2>Add a new Book</h2>
+<form class='cuForm' id='create_book_form' action="/books" method="POST">
+    <table>
+        <tbody>
+            <tr>
+                <td><label for='create_book_title'>Title: </label></td>
+                <td><input type='text' name='title' id='create_book_title' required /></td>
+            </tr>
+
+            <tr>
+                <td><label for='create_book_author'>Author: </label></td>
+                <td> <select name='authorName' id='create_book_author'>
+                        <option value='NULL' disabled selected>Select an Author</option>
+                        {{#each authors}}
+                        <option value='{{this.id}}'>
+                            <p>{{this.fName}} {{this.lName}}</p>
+                        </option>
+                        {{/each}}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for='create_book_genre'>Genre: </label></td>
+                <td><input type='text' name='genre' id='create_book_genre' /></td>
+            </tr>
+
+            <tr>
+                <td><label for='create_book_price'>Price: </label></td>
+                <td><input type='text' name='price' id='create_book_price' /></td>
+            </tr>
+
+            <tr>
+                <td><label for='create_book_quantity'>Current Quantity: </label></td>
+                <td><input type='text' name='stockQuantity' id='create_book_quantity' /></td>
+            </tr>
+            
+            <tr>
+                <td><label for='create_book_year'>Published Year: </label></td>
+                <td><input type="number" min="-660" max="2050" step="1" value="2025" name='publishYear' id='create_book_year' /></td>
+            </tr>
+
+            <tr>
+                <td><label for='create_book_isbn'>ISBN: </label></td>
+                <td><input type='text' name='isbn' id='create_book_isbn' /></td>
+            </tr>
+        </tbody>
+    </table>
+        <div class="form-actions">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+{{! READ table }}
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Price</th>
+            <th>Quantity on hand</th>
+            <th>Year Published</th>
+            <th>ISBN</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{! For each row, print the id, fname, lname, homeworld and age }}
+        {{#each books}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.authorName}}</td>
+            <td>{{this.genre}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.stockQuantity}}</td>
+            <td>{{this.publishYear}}</td>
+            <td>{{this.isbn}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<footer>
+    &copy; 2025 Daniel Aguilar and Josh Goben
+</footer>

@@ -1,0 +1,78 @@
+<h1>Edit Line Item - Online Bookstore Admin</h1>
+
+<div class="edit-line-item-description">
+    <p>This page allows you to update an individual line item on an existing order.</p>
+</div>
+
+<!--#region order-header  -->
+
+{{! 
+Adopted from Github
+Source URL: https://github.com/sparksuite/simple-html-invoice-template/blob/master/invoice.html
+Date: 28 November 2025
+}}
+<div class="edit-line-item-header">
+    <table cellpadding="0" cellspacing="0">
+        
+        <tr class="top">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td class="title">
+                            <strong>Order Number: </strong>
+                            {{orderItem.orderID}}
+                        </td>
+
+                        <td>
+                            <strong>Customer: </strong>
+                            {{orderItem.customerName}}
+                        </td>
+                        <td>
+                            <strong>Created: </strong>
+                            {{shortDate orderItem.orderDate}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--#endregion -->
+
+{{! READ table }}
+<form class='cuForm' id='edit_line_item_form' action="/edit-line-item/:orderItemID" method="POST">
+    <input type='hidden' name='orderItemID' value={{orderItem.orderItemID}} />
+    <input type='hidden' name='orderID' value={{orderItem.orderID}} />
+    <table>
+        <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        {{!-- Replaced the Handlebars EACH since we will only ever have one item on this page --}}
+        <tbody>
+            <tr>
+                <td><select name='bookID' id='edit_line_item_title' required>
+                        <option value={{orderItem.bookID}} selected>{{orderItem.title}}</option>
+                        {{#each books}}
+                        <option value={{this.id}}>{{this.title}}</option>
+                        {{/each}}
+                    </select>
+                </td>
+                <td><input type='number' name='quantity' id='edit_line_item_quantity' max="9999"
+                        value={{orderItem.quantity}} required /></td>
+                <td>
+                    <button type='submit'>
+                        Update
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+
+<footer>
+    &copy; 2025 Daniel Aguilar and Josh Goben
+</footer>

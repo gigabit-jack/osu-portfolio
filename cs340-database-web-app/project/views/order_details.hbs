@@ -1,0 +1,141 @@
+<h1>Order Details - Online Bookstore Admin</h1>
+
+<div class="order_itemsDescription">
+    <p>This page displays details for a specific order. Use the drop down to select an order to display its details and items.</p>
+</div>
+
+{{! Dropdown to select an Order }}
+<form id='select_order_form'>
+    <select name='orderID' id='select_order'>
+        <option value={{orderDetails.orderID}} selected>{{orderDetails.orderID}} - {{orderDetails.customerName}}
+        </option>
+        {{#each orders}}
+        <option value={{this.orderID}}>{{this.orderID}} - {{this.customerName}}</option>
+        {{/each}}
+    </select>
+    <td>
+        <button type='submit'>
+            Load selected order
+        </button>
+    </td>
+</form>
+
+<!--#region order-header  -->
+
+{{! 
+Adopted from Github
+Source URL: https://github.com/sparksuite/simple-html-invoice-template/blob/master/invoice.html
+Date: 28 November 2025
+}}
+<div class="order-details-header">
+    <table cellpadding="0" cellspacing="0">
+        
+        <tr class="top">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td class="title">
+                            <strong>Order Number: </strong>
+                            {{orderDetails.orderID}}
+                        </td>
+
+                        <td>
+                            <strong>Customer: </strong>
+                            {{orderDetails.customerName}}
+                        </td>
+                        <td>
+                            <strong>Created: </strong>
+                            {{shortDate orderDetails.orderDate}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="order-details-info">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            <strong>Payment status: </strong>
+                            {{orderDetails.paymentStatus}}
+                        </td>
+                        <td>
+                            <strong>Order total: </strong>
+                            ${{orderDetails.totalAmount}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--#endregion -->
+
+{{! READ table }}
+<table>
+    <thead>
+        <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each orderItems}}
+        <tr>
+            <td>{{this.title}}</td>
+            <td>{{this.authorName}}</td>
+            <td>{{this.isbn}}</td>
+            <td>{{this.quantity}}</td>
+            <td>${{this.price}}</td>
+            <td>${{this.subtotal}}</td>
+            <td>
+                <form class='cuForm' id='edit_orderItem_form' action="/edit-line-item/{{this.orderItemID}}" method="GET">
+                    <button type="submit">Edit</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{! CREATE form }}
+<h2>Add a book to this Order</h2>
+<form class='cuForm' id='create_orderItem_form' action="/order_details" method="POST">
+ <input type='hidden' name='orderID' value='{{orderDetails.orderID}}' />
+<table>
+    <tbody>
+        <tr>
+            <td>Book Name:</td>
+            <td>    
+                <select name='bookID' id='create_orderItem_book'>
+                    <option value='NULL' disabled selected>Select a book</option>
+                    {{#each books}}
+                    <option value='{{this.id}}' required>
+                        {{this.title}}
+                    </option>
+                    {{/each}}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><input type='number' name='quantity' id='create_orderItem_quantity' max="9999" required /></td>
+        </tr>
+    </tbody>
+</table>
+       
+
+    <div class="form-actions">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<footer>
+    &copy; 2025 Daniel Aguilar and Josh Goben
+</footer>

@@ -1,0 +1,87 @@
+<h1>Customers - Online Bookstore Admin</h1>
+
+<div class="customersDescription">
+    <p>This page lists all Cusotmers in the system, regardless of whether or not they have placed an order.</p>
+</div>
+
+{{! CREATE form }}
+<h2>Create a new Customer</h2>
+<form class='cuForm' id='create_customer_form' action="/customers" method="POST">
+    <table>
+        <tbody>
+            <tr>
+                <td><label for='create_customer_fname'>First name: </label></td>
+                <td><input type='text' name='fname' id='create_customer_fname' autocomplete="given-name" required /></td>
+            </tr>
+
+            <tr>
+                <td><label for='create_customer_lname'>Last name: </label></td>
+                <td><input type='text' name='lname' id='create_customer_lname' autocomplete="surname" required /></td>
+            </tr>
+
+            <tr>
+                <td><label for='create_customer_email'>Email: </label></td>
+                <td><input type='email' name='email' id='create_customer_email' autocomplete="email" required /></td>
+            </tr>
+
+            <tr>
+                <td><label for='create_customer_phone'>Phone number:</label></td>
+                <td><input type='tel' name='phone' id='create_customer_phone' autocomplete="tel-national" /></td>
+            </tr>
+            
+            <tr>
+                <td><label for='create_customer_city'>City:</label></td>
+                <td><input type='tel' name='city' id='create_customer_city' autocomplete="address-level2" /></td>
+            </tr>
+
+            <tr>
+                <td><label for='create_customer_state'>State:</label></td>
+                <td><input type='tel' name='state' id='create_customer_state' autocomplete="address-level1" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <input type='submit' />
+</form>
+
+{{! READ table }}
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>City</th>
+            <th>State</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{! For each row, print the id, fname, lname, homeworld and age }}
+        {{#each customers}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.fName}}</td>
+            <td>{{this.lName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.phoneNumber}}</td>
+            <td>{{this.city}}</td>
+            <td>{{this.state}}</td>
+        {{! DELETE form }}
+            <form id='delete_customer_form' action="/customers/delete" method="POST">
+                <input type='hidden' name='customerID' value='{{this.id}}' />
+                <td>
+                    <button type='submit' style='color: red; font-weight: bold;'>
+                        Delete
+                    </button>
+                </td>
+            </form>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<footer>
+    &copy; 2025 Daniel Aguilar and Josh Goben
+</footer>

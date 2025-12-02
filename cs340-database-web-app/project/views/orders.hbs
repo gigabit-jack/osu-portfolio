@@ -1,0 +1,86 @@
+<h1>Orders - Online Bookstore Admin</h1>
+
+<div class="ordersDescription">
+    <p>This page displays all orders and the customers associated with them.</p>
+</div>
+
+{{! CREATE form }}
+<h2>Create a new blank Order</h2>
+<div>
+    <p>This will create an empty order with no items, but you can add the items later.</p>
+</div>
+<form class='cuForm' id='create_order_form' action="/orders" method="POST">
+    <table>
+        <tbody>
+            <tr>
+                <td><label for='create_order_customer'>Select a customer: </label></td>
+                <td><select name='customerID' id='create_order_customer' required>
+                        <option value='NULL' disabled selected>Select a Customer</option>
+                        {{#each customers}}
+                        <option value='{{this.id}}'>
+                            <p>{{this.id}} - {{this.fName}} {{this.lName}} - {{this.email}}</p>
+                        </option>
+                        {{/each}}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for='create_order_orderDate'>Order date: </label></td>
+                <td><input type='date' name='orderDate' id='create_order_orderDate' required /></td>
+            </tr>
+
+            <tr>
+                <td><label for='create_order_paymentStatus'>Current payment status: </label></td>
+                <td> <select name='paymentStatus' id='create_order_paymentStatus'>
+                        <option value='Pending' selected>Pending</option>
+                        <option value='Paid'>Paid</option>
+                        <option value='NULL'>None</option>
+                    </select></td>
+            </tr>
+        </tbody>
+    </table>
+    <input type='submit' />
+</form>
+
+<div></div>
+
+
+{{! READ table }}
+<table>
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Order Date</th>
+            <th>Order Total</th>
+            <th>Payment Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{! For each row, print the id, fname, lname, homeworld and age }}
+        {{#each orders}}
+        <tr>
+            <td>{{this.orderID}}</td>
+            <td>{{this.customerName}}</td>
+            <td>{{shortDate this.orderDate}}</td>
+            <td>${{this.totalAmount}}</td>
+            <td>{{this.paymentStatus}}</td>
+        {{! DELETE form }}
+            <form id='delete_orderItem_form' action="/orders/delete" method="POST">
+                <input type='hidden' name='orderID' value='{{this.orderID}}' />
+                <td>
+                    <button type='submit' style='color: red; font-weight: bold;'>
+                        Delete
+                    </button>
+                </td>
+            </form>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<footer>
+    &copy; 2025 Daniel Aguilar and Josh Goben
+</footer>

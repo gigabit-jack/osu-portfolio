@@ -1,0 +1,69 @@
+<h1>Authors - Online Bookstore Admin</h1>
+
+<div class="authorsDescription">
+    <p>This page lists all authors in the system, even if we have no books in our system tied to that author.</p>
+</div>
+
+{{! CREATE form }}
+<h2>Add a new Author</h2>
+<form class="cuForm" id="create_author_form" action="/authors" method="POST">
+    <table>
+        <tbody>
+            <tr>
+                <td><label for='firstName'>First Name: </label></td>
+                <td><input type='text' name='firstName' id='firstName' autocomplete="given-name" required /></td>
+            </tr>
+
+            <tr>
+                <td><label for='lastName'>Last Name: </label></td>
+                <td><input type='text' name='lastName' id='lastName' autocomplete="surname" /></td>
+            </tr>
+
+            <tr>
+                <td><label for='country'>Country: </label></td>
+                <td><input type='text' name='country' id='country' autocomplete="country-name" /></td>
+            </tr>
+
+            <tr>
+                <td><label for='birthDate'>Birthdate: </label></td>
+                <td><input type='date' name='birthDate' id='birthDate' autocomplete="bday" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="form-actions">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+{{! READ table }}
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birth Country</th>
+            <th>Birthdate</th>
+            <th>Age (if still living)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{! For each row, print the id, fname, lname, homeworld and age }}
+        {{!-- shortDate is part of the Moment helper - see app.js for details --}}
+        {{#each authors}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.fName}}</td>
+            <td>{{this.lName}}</td>
+            <td>{{this.country}}</td>
+            <td>{{shortDate this.birthdate}}</td>
+            <td>{{this.age}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<footer>
+    &copy; 2025 Daniel Aguilar and Josh Goben
+</footer>
