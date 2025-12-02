@@ -17,6 +17,8 @@ This repository will be updated as I continue my development journey at OSU. One
 **Tech:** TBD
 **Folder:** TBD
 
+---
+
 ### 🟦 **CS 340 --- Full-Stack Database Web App**
 
 **Tech:** Node.js, Express, MySQL, Handlebars
